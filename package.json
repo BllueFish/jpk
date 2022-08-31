@@ -2,11 +2,15 @@
   "name": "jpk",
   "version": "0.1.0",
   "private": true,
+  "description": "精品课实战",
+  "author": "feng.li",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf .next && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:js": "eslint --fix .",
+    "lint:css": "stylelint '{components,pages,style}/**/*.css' --fix"
   },
   "dependencies": {
     "next": "12.2.5",
@@ -16,5 +20,17 @@
   "devDependencies": {
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all",
+    "Android >4.4.4",
+    "ios >=11"
+  ],
+  "lint-staged": {
+    "*.{js,jsx}": "npm run lint:js",
+    "**/*.css": "npm run lint:css"
+  },
 }
