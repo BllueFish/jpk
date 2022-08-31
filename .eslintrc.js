@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -21,7 +21,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 8,  
+    requireConfigFile: false,
     sourceType: 'module',
   },
   rules: {

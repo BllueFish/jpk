@@ -1,0 +1,38 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.36rem;
+  display: flex;
+  background-image: linear-gradient(0deg, rgba(30, 11, 11, 0) 19%, rgba(0, 0, 0, .31));
+}
+
+.search {
+  flex: 1;
+  height: 0.64rem;
+  /* 预留左侧icon */
+  padding-left: 0.78rem;  
+  margin: 0.13rem 0 0 0.3rem;
+  line-height: 0.64rem;
+  font-size: 0.26rem;
+  color: #6b6b66;
+  background-color: rgba(255, 255, 255, .8);
+  background-image: url('../../public/img/ic_search.jpg');
+  background-repeat: no-repeat;
+  background-position: 0.34rem center;
+  background-size: 0.26rem 0.29rem;
+  border-radius: 0.12rem;
+}
+
+.user {
+  width: 1.2rem;
+  height: 00.58rem;
+  /* 左右 margin 太宽，导致可点击区域太小 */
+  /* 优化: 把左右的margin合到width中去，干掉左右margin；相应的背景图片的position也要调整一下 */
+  /* margin: 0.13rem 0.31rem 0; */
+  margin-top: 0.13rem;
+  background: url('../../public/img/ic_user.png') no-repeat;
+  background-size: contain;
+  background-position: 0.31rem center;
+}

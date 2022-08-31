@@ -8,22 +8,43 @@
   "scripts": {
     "dev": "next dev",
     "build": "rm -rf .next && next build",
-    "start": "next start",
+    "start": "yarn build & next start",
     "lint:js": "eslint --fix .",
     "lint:css": "stylelint '{components,pages,style}/**/*.css' --fix",
     "version": "auto-changelog -p",
     "format": "prettier --write './**/*.{js,jsx,css}' --config ./.prettierrc"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/eslint-parser": "^7.18.9",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
     "auto-changelog": "^2.4.0",
+    "core-js": "^3.25.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
-    "husky": "^8.0.1"
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^7.8.0",
+    "prettier": "^2.7.1",
+    "prettier-eslint": "^15.0.1",
+    "prettier-eslint-cli": "^7.1.0",
+    "stylelint": "^14.11.0",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^28.0.0"
   },
   "husky": {
     "hooks": {
@@ -46,5 +67,10 @@
     "template": "keepachangelog",
     "unreleased": true,
     "commitLimit": false
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

@@ -3,4 +3,5 @@ node_modules
 public
 .babelrc.js
 .eslintrc.js
+.eslintrc.json
 next.config.js
