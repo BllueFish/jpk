@@ -10,7 +10,9 @@
     "build": "rm -rf .next && next build",
     "start": "next start",
     "lint:js": "eslint --fix .",
-    "lint:css": "stylelint '{components,pages,style}/**/*.css' --fix"
+    "lint:css": "stylelint '{components,pages,style}/**/*.css' --fix",
+    "version": "auto-changelog -p",
+    "format": "prettier --write './**/*.{js,jsx,css}' --config ./.prettierrc"
   },
   "dependencies": {
     "next": "12.2.5",
@@ -18,8 +20,15 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "auto-changelog": "^2.4.0",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "husky": "^8.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": [
     ">0.2%",
@@ -33,4 +42,9 @@
     "*.{js,jsx}": "npm run lint:js",
     "**/*.css": "npm run lint:css"
   },
+  "auto-changelog": {
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
+  }
 }
