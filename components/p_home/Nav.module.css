@@ -1,0 +1,47 @@
+.nav {
+  position: relative;
+  width: 6.9rem;
+  height: 3.64rem;
+  margin: -2.16rem auto 0;
+  overflow: hidden;
+  font-size: 0.12rem;
+  background-color: #fff;
+  border-radius: 0.06rem;
+  box-shadow: 0 0.06rem 0.15rem 0 hsla(0, 0%, 88%, 0.41);
+  transform: translateZ(0);
+}
+
+/* 轮播 */
+.banner-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 0.01rem;
+}
+
+.slide {
+  width: 100%;
+  display: flex!important;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.item {
+  width: 1.72rem;
+  margin: 0.32rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  margin-bottom: 0.1rem;
+  width: 0.58rem;
+  height: 0.58rem;
+
+}
+
+.title {
+  font-size: 0.12rem;
+}

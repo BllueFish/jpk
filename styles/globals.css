@@ -122,3 +122,40 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* 轮播 */
+.slider-banners .dots  li {
+  display: inline-block;
+}
+.slider-banners .dots  li button {
+  display: none;
+}
+
+.slider-banners .home-banner-dots  li {
+  display: inline-block;
+  width: 0.14rem;
+  height: 0.18rem;
+  margin: 0.05rem;
+  background-image: url('../public/img/dot_grey.png');
+  border-radius: 50%;
+  background-size: 100%;
+}
+
+.slider-banners .home-banner-dots .slick-active {
+  background-image: url('../public/img/dot.jpg');
+  background-size: 100%;
+}
+
+.slider-banners .home-nav-dots li {
+  display: inline-block;
+  width: 0.14rem;
+  height: 0.14rem;
+  margin: 0.05rem;
+  background: rgba(0, 0, 0, .1);
+  border-radius: 50%;
+  background-size: 100%;
+}
+
+.slider-banners .home-nav-dots .slick-active {
+  background: rgba(0, 0, 0, .3);
+}

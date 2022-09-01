@@ -6,6 +6,8 @@
   height: 1.36rem;
   display: flex;
   background-image: linear-gradient(0deg, rgba(30, 11, 11, 0) 19%, rgba(0, 0, 0, .31));
+  z-index: 1;
+  box-sizing: border-box;
 }
 
 .search {
@@ -27,7 +29,7 @@
 
 .user {
   width: 1.2rem;
-  height: 00.58rem;
+  height: 0.58rem;
   /* 左右 margin 太宽，导致可点击区域太小 */
   /* 优化: 把左右的margin合到width中去，干掉左右margin；相应的背景图片的position也要调整一下 */
   /* margin: 0.13rem 0.31rem 0; */
