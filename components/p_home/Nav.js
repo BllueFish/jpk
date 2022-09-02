@@ -20,33 +20,30 @@ const Nav = ({ data = [] }) => {
     className: 'slider-banners',
   }
   const renderSlideCard = () => {
-    const navList = [...data];
-    const slideCard = [];
-    while (navList.length>0) {
+    const navList = [...data]
+    const slideCard = []
+    while (navList.length > 0) {
       slideCard.push(
         <div key={slideCard.length} className={s.slide}>
-          {navList.splice(0, navList.length>8 ? 8 : navList.length).map((item, index) => (
-            <Link 
-              key={`${item?.img}_${index}`} 
-              href="/course/detail/[id]" 
-              as={`/course/detail/${item?.id}`}
-            >
+          {navList.splice(0, navList.length > 8 ? 8 : navList.length).map((item, index) => (
+            <Link
+              key={`${item?.img}_${index}`}
+              href="/course/detail/[id]"
+              as={`/course/detail/${item?.id}`}>
               <div className={s.item}>
                 <img src={item?.img} alt={item?.title || 'image'} className={s.icon} />
                 <div className={s.title}>{item.title || ''}</div>
               </div>
             </Link>
           ))}
-        </div>
+        </div>,
       )
     }
-    return slideCard;
+    return slideCard
   }
   return (
     <div className={s.nav}>
-      <Slider {...settings} >
-        {renderSlideCard()}
-      </Slider>
+      <Slider {...settings}>{renderSlideCard()}</Slider>
     </div>
   )
 }

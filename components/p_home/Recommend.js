@@ -3,7 +3,6 @@ import CourseCard from '../common/CourseCard'
 import { getRecommend } from 'services/api'
 import { useCallback, useEffect, useState } from 'react'
 import LoadMore from '@/common/LoadMore'
-import s from './Recommend.module.css'
 
 const PAGE_SIZE = 10
 
@@ -17,7 +16,7 @@ const Recommend = () => {
 
   const fetchRecommend = useCallback(async () => {
     try {
-      const list  = await getRecommend({
+      const list = await getRecommend({
         start: recommend.current,
         offset: PAGE_SIZE,
       })
@@ -27,7 +26,7 @@ const Recommend = () => {
         hasMore: list.length === PAGE_SIZE,
       })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }, [recommend])
 
@@ -37,14 +36,14 @@ const Recommend = () => {
 
   return (
     <section>
-      <SectionHeader title='课程精选' subTitle="Course selection" url=''/>
-     <div className={s.list}>
+      <SectionHeader title="课程精选" subTitle="Course selection" url="" />
+      <div>
         {recommend.list.map((item) => (
           <CourseCard key={item?.id} data={item} />
         ))}
-     </div>
-     {/* 加载更多 */}
-     <LoadMore  onReachBottom={fetchRecommend} hasMore={recommend.hasMore} />
+      </div>
+      {/* 加载更多 */}
+      <LoadMore onReachBottom={fetchRecommend} hasMore={recommend.hasMore} />
     </section>
   )
 }

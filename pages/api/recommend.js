@@ -141,15 +141,12 @@ export default (req, res) => {
           name: '张三',
         },
         {
-          img: '/img/teacher2.png',
           name: '张三1',
         },
         {
-          img: '/img/teacher2.png',
           name: '张三2',
         },
         {
-          img: '/img/teacher2.png',
           name: '张三3',
         },
         {

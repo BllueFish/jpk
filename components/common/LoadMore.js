@@ -7,11 +7,11 @@ const renderContent = (isLoadingMore, hasMore, customNoMoreText) => {
   if (isLoadingMore) {
     return <div className={s.loadText}>正在加载...</div>
   }
-  
+
   return hasMore ? (
     <div className={s.loadText}>&nbsp;</div>
   ) : (
-    <div className={s.loadText}>{ customNoMoreText || '没有更多了' }</div>
+    <div className={s.loadText}>{customNoMoreText || '没有更多了'}</div>
   )
 }
 
@@ -42,7 +42,7 @@ export default class LoadMore extends PureComponent {
     */
     const { isLoadingMore } = this.state
     const { hasMore, onReachBottom } = this.props
-    const curScrollY = window.scrollY  // 文档垂直方向已滚动高度
+    const curScrollY = window.scrollY // 文档垂直方向已滚动高度
     const height = window.screen.height
     const docLength = window.document.body.scrollHeight
     if (!isLoadingMore && hasMore && curScrollY + height >= docLength) {
@@ -63,6 +63,8 @@ export default class LoadMore extends PureComponent {
     const { isLoadingMore } = this.state
     const { hasMore, customNoMoreText } = this.props
 
-    return  <div className={s.loadMore}>{renderContent(isLoadingMore, hasMore, customNoMoreText)}</div>
+    return (
+      <div className={s.loadMore}>{renderContent(isLoadingMore, hasMore, customNoMoreText)}</div>
+    )
   }
 }

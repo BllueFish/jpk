@@ -1,5 +1,14 @@
+import { useRouter } from "next/router"
+
 const CourseDetail = () => {
-  return <div>course detial</div>
+  const router = useRouter()
+  const { id } = router.query
+
+  return (
+    <main>
+      <h3>课程详情页{id}</h3>
+    </main>
+  )
 }
 
 export default CourseDetail

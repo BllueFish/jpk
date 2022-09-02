@@ -1,0 +1,135 @@
+.card {
+  display: block;
+  padding: 0.4rem 0;
+  margin: 0 0.36rem;
+  color: #949494;
+}
+
+.title,
+.categoryTag {
+  vertical-align: middle;
+}
+
+.title {
+  font-size: 0.34rem;
+  font-weight: 700;
+  color: #36404a;
+}
+
+.categoryTag {
+  position: relative;
+  display: inline-block;
+  min-width: 0.7rem;
+  height: 0.36rem;
+  padding: 0 0.08rem;
+  margin: 0 0.2rem 0 0.05rem;
+  font-size: 0.22rem;
+  line-height: 0.36rem;
+  color: #fff;
+  text-align: center;
+  background-color: #838d98;
+  border-radius: 0 0.06rem 0.06rem;
+}
+.categoryTag::before,
+.categoryTag::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: -0.1rem;
+  width: 0.1rem;
+  height: 0.1rem;
+}
+
+.categoryTag::before {
+  background-color: #838d98;
+}
+
+.categoryTag::after {
+  width: 0.1rem;
+  height: 0.1rem;
+  background-color: #fff;
+  border-top-right-radius: 100%;
+}
+
+/* 开课时间/课时 */
+.time {
+  font-size: 0.26rem;
+  margin: 0.12rem 0 0.28rem 0.02rem;
+}
+
+.lessonNum {
+  margin-left: 0.2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.22rem;
+}
+
+/* 教师信息列表 */
+.left {
+  margin-left: 0.09rem;
+}
+
+.teacher {
+  display: inline-block;
+  margin-right: 0.36rem;
+  max-width: 0.88rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.teacher:last-child {
+  margin-right: 0;
+}
+
+.imgWrapper {
+  margin:  0 auto 0.09rem;
+  position: relative;
+  width: 0.48rem;
+  height: 0.48rem;
+}
+
+.avatar,
+.avatarBorder {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.avatarBorder {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* 价格/优惠/数量 */
+.promotion {
+  text-align: right;
+}
+
+.promotion .price {
+  margin-left: 0.16rem;
+  color: #ff4c38;
+  font-size: 0.36rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.promotion .price > .icon {
+  margin-right: 0.08rem;
+  font-size: 0.24rem;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.promotion .deleted {
+  font-size: 0.26rem;
+  text-decoration: line-through;
+}
+
+.promotion .desc {
+  margin-top: 0.17rem;
+}
