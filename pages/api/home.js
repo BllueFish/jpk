@@ -37,7 +37,7 @@ export default (req, res) => {
       talk: {
         recommend: [
           {
-            img: '/img/talk1.png',
+            img: '/img/talk1.jpg',
             title: '教你用中文思维学韩语',
             type: 'left',
             courseId: 305,
@@ -49,7 +49,7 @@ export default (req, res) => {
             courseId: 307,
           },
           {
-            img: '/img/talk3.png',
+            img: '/img/talk3.jpg',
             title: '教你用中文思维学韩语',
             type: 'rightBottom',
             courseId: 308,
@@ -60,7 +60,7 @@ export default (req, res) => {
             title: '【备战9月 抢分计划】四六级听力涨分必备技巧指导（不设回放）',
             type: 'talk',
             teacher: {
-              img: '/img/image(1).png',
+              img: '/img/teacher2.png',
               title: '欧阳萍',
             },
             courseId: 309,

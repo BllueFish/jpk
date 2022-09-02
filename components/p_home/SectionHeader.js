@@ -1,7 +1,15 @@
-import React from 'react'
+import s from './SectionHeader.module.css'
 
-const SectionHeader = () => {
-  return <section>SectionHeader</section>
+const SectionHeader = ({ title = '', subTitle = '', url = '' }) => {
+  return (
+    <header className={s.header}>
+      <div className={s.title}>
+        <h4>{title}</h4>
+        <h5>{subTitle}</h5>
+      </div>
+      <a href={url}>查看更多</a>
+    </header>
+  )
 }
 
 export default SectionHeader

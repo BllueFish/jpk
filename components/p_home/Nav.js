@@ -40,7 +40,6 @@ const Nav = ({ data = [] }) => {
         </div>
       )
     }
-      console.log(slideCard);
     return slideCard;
   }
   return (

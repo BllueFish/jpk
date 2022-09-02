@@ -5,7 +5,8 @@ import Recommend from '@/p_home/Recommend'
 import { getHome } from 'services/api'
 
 export default function Home({ home = {} }) {
-  const { banner, fixedEntries } = home;
+  const { banner, fixedEntries, talk } = home
+  
   return (
     <div>
       <Head>
@@ -13,7 +14,7 @@ export default function Home({ home = {} }) {
       </Head>
       <main>
         <Header banner={banner} fixedEntries={fixedEntries} />
-        <Talk />
+        <Talk data={talk} />
         <Recommend />
       </main>
     </div>
@@ -26,6 +27,6 @@ export async function getServerSideProps() {
     const data = await getHome()
     return { props: { home: data } }
   } catch (error) {
-    return { props: { home: { banner: [] } } }
+    return { props: { home: {} } }
   }
 }

@@ -5,7 +5,7 @@ const CourseCard = ({ data = {} }) => {
 
   return (
     <div>
-      <p>{courseTitle}</p>
+      <h1>{courseTitle}</h1>
     </div>
   )
 }
