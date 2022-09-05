@@ -7,6 +7,7 @@ import { getHotWord, getSearchResult, getSearchSuggest } from 'services/api'
 import { useRouter } from 'next/router'
 import throttle from 'lodash/throttle'
 import s from './index.module.css'
+import useLSState from 'utils/hooks/useLSState'
 
 const TYPES = {
   HISTORY: 'history',
@@ -19,11 +20,19 @@ const Search = ({ kw, hotWords, result }) => {
   const [contType, setContType] = useState(kw ? TYPES.RESULT : TYPES.HISTORY)
   const [inputVal, setInputVal] = useState(kw || '')
   const [suggestList, setSuggestList] = useState([])
+  const [history, setHistory] = useLSState('searchHistory', [])
 
   const renderContent = () => {
     switch (contType) {
       case TYPES.HISTORY:
-        return <History submitSearch={submitSearch} />
+        return (
+          <History
+            hotWords={hotWords}
+            history={history}
+            submitSearch={submitSearch}
+            clearHistory={() => setHistory([])}
+          />
+        )
       case TYPES.SUGGEST:
         return <Suggest data={suggestList} submitSearch={submitSearch} />
       case TYPES.RESULT:
@@ -55,6 +64,9 @@ const Search = ({ kw, hotWords, result }) => {
    * 4、更新 url（填充上搜索的kw)
    */
   const submitSearch = async (kw = '') => {
+    // 保存搜索记录：压入头部（最近优先）、去重、最多6条
+    history.unshift(kw)
+    setHistory([...new Set(history.slice(0, 6))])
     if (contType !== TYPES.RESULT) setContType(TYPES.RESULT)
     setInputVal(kw)
     // 路由替换

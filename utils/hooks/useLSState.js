@@ -1,31 +1,38 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ls from 'store2'
+
 /**
- * localStorage 同步State
+ * localStorage 同步 State
  * @param {*} key 存储的键
  * @param {*} defaultVal 默认值
  */
 const useLSState = (key, defaultVal = '') => {
-  const [data, setData] = useState(defaultVal)
-  const setter = (newData) => {
-    setData(newData)
-    ls.set(key, newData)
+  const [state, setState] = useState(defaultVal)
+
+  const setter = (newVal) => {
+    if (!newVal) return
+    setState(newVal)
+    ls.set(key, newVal)
   }
 
-  // 只有在客户端才有localstorage
+  const cleanUp = () => {
+    setState(defaultVal)
+  }
+
+  // 只在客户端执行
   useEffect(() => {
-    // ls 没有数据则使用 defaultVal初始化
     if (ls(key) === null) {
       ls.set(key, defaultVal)
-      setData(defaultVal)
     } else {
-      // ls 有数据则使用ls数据更新state
-      setData(ls(key))
+      setState(ls.get(key))
+    }
+
+    return () => {
+      cleanUp()
     }
   }, [])
 
-  // 返回数据和setter
-  return [data, setter]
+  return [state, setter]
 }
 
 export default useLSState

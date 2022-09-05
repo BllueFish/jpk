@@ -64,6 +64,7 @@ button {
 
 :root {
   --main-bg-color: red;
+  --title-color: #36404a;
 }
 
 .border-b-1px,

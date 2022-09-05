@@ -1,0 +1,64 @@
+.container {
+  margin: 0 0.36rem;
+  overflow: hidden;
+  font-size: 0.3rem;
+  color: #36404a;
+}
+
+.container h3 {
+  position: relative;
+  padding: 0.18rem 0 0.06rem;
+  font-size: 0.34rem;
+  font-weight: bold;
+}
+
+.hotWord,
+.hisotry {
+  padding-bottom: 0.54rem;
+  /* 清除浮动 */
+  overflow: hidden;
+}
+
+.item {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  padding: 0 0.42rem;
+  margin: 0.32rem 0.34rem 0 0;
+  color: #ff4c38;
+  text-align: center;
+  background-color: #ffe2e0;
+  border-radius: 0.06rem;
+  overflow: hidden;
+}
+
+/* 搜索历史 */
+.container .historyHead {
+  padding: 0.18rem 0 0.38rem;
+}
+
+.delete {
+  position: absolute;
+  right: 0;
+}
+
+.delete:focus {
+  outline: none;
+}
+
+.clean {
+  width: 0.36rem;
+  height: 0.36rem;
+}
+
+.list {
+  padding: 0.33rem 0;
+}
+
+.list::after,
+.historyHead::after {
+  color: #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
