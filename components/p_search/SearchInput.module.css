@@ -9,6 +9,7 @@
   overflow: hidden;
   font-size: 0.48rem;
   background-image: linear-gradient(-180deg, #fff 84%, rgba(255, 255, 255, 0.83) 100%);
+  z-index: 1;
 }
 
 .formCont {

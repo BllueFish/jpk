@@ -119,11 +119,57 @@ button {
 }
 
 /* 二倍屏幕下的物理1px边框 */
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-device-pixel-ratil: 2) {
+@media (min-resolution: 2dppx) {
   .border-b-1px::after {
     transform: scaleY(.5);
   }
+
+  .border-t-1px::before {
+    transform: scaleY(.5);
+  }
+
+  .border-l-1px::before {
+    transform: scaleX(.5);
+  }
+
+  .border-all-1px {
+    border: none !important;
+  }
+
+  .border-all-1px::after {
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: left top;
+  }
+}
+
+/* 3倍屏幕下的物理1px边框 */
+@media (min-resolution: 3dppx){
+  .border-b-1px::after {
+    transform: scaleY(.34);
+  }
+
+  .border-t-1px::before {
+    transform: scaleY(.34);
+  }
+
+  .border-l-1px::before {
+    transform: scaleX(.34);
+  }
+
+  .border-all-1px {
+    border: none !important;
+  }
+
+  .border-all-1px::after {
+    width: 300%;
+    height: 300%;
+    transform: scale(.34);
+    transform-origin: left top;
+  }
+
+  
 }
 
 .ellipsis {

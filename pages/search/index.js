@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import History from '@/p_search/History'
 import Suggest from '@/p_search/Suggest'
 import Result from '@/p_search/result'
@@ -17,12 +17,14 @@ const TYPES = {
 
 const Search = ({ kw, hotWords, result }) => {
   const router = useRouter()
+  const [loading, setLoading] = useState(false) // 加载中
   const [contType, setContType] = useState(kw ? TYPES.RESULT : TYPES.HISTORY)
   const [inputVal, setInputVal] = useState(kw || '')
   const [suggestList, setSuggestList] = useState([])
-  const [history, setHistory] = useLSState('searchHistory', [])
+  const [history, setHistory] = useLSState('searchHistory', kw ? [kw] : [])
 
   const renderContent = () => {
+    if (loading) return <div className={s.loading}>加载中......</div>
     switch (contType) {
       case TYPES.HISTORY:
         return (
@@ -36,7 +38,9 @@ const Search = ({ kw, hotWords, result }) => {
       case TYPES.SUGGEST:
         return <Suggest data={suggestList} submitSearch={submitSearch} />
       case TYPES.RESULT:
-        return <Result />
+        return <Result data={result} kw={kw} />
+      default:
+        break
     }
   }
 
@@ -68,6 +72,7 @@ const Search = ({ kw, hotWords, result }) => {
     history.unshift(kw)
     setHistory([...new Set(history.slice(0, 6))])
     if (contType !== TYPES.RESULT) setContType(TYPES.RESULT)
+    setLoading(true)
     setInputVal(kw)
     // 路由替换
     router.replace({
@@ -77,6 +82,10 @@ const Search = ({ kw, hotWords, result }) => {
       },
     })
   }
+
+  useEffect(() => {
+    setLoading(false)
+  }, [result])
 
   return (
     <div>
@@ -100,15 +109,23 @@ export async function getServerSideProps(context) {
   let [hotWords, result] = [[], []]
   if (kw && kw.trim()) {
     // 热门词汇 & 搜索结果
-    const [resultRes, hotWordsRes] = await Promise.allSettled([
-      getSearchResult(kw.trim()),
-      getHotWord(),
-    ])
-    hotWords = hotWordsRes.value
-    result = resultRes.value
+    try {
+      const [resultRes, hotWordsRes] = await Promise.allSettled([
+        getSearchResult(kw.trim()),
+        getHotWord(),
+      ])
+      hotWords = hotWordsRes.value
+      result = resultRes.value
+    } catch (e) {
+      console.log(e)
+    }
   } else {
     // 热门词汇
-    hotWords = await getHotWord()
+    try {
+      hotWords = await getHotWord()
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return {
